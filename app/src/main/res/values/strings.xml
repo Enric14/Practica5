@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">Practica5</string>
+    <string name="main2_description_card1">City of Los Angeles</string>
+    <string name="main2_desription2_card1">USA, Los Angeles - 2 weeks</string>
+    <string name="main_description_card2">Beach Vacation</string>
+    <string name="main_description2_card2">Maldives - 3 weeks</string>
+    <string name="main_login">Login</string>
+    <string name="main_user">Login</string>
+    <string name="main_password">Password</string>
+    <string name="main_txt_btn">Login</string>
+    <string name="main_new_password">Forgot password</string>
+    <string name="main_get_new_password">Get new</string>
+    <string name="main_have_new_account">Do you have an account?</string>
+    <string name="main_create_new_account_txt">Create new</string>
+    <string name="main_name">¿Como te llamas?</string>
+    <string name="main_surname">¿Y tu apellido?</string>
+    <string name="main_age">¿Cuantos años tienes?</string>
+    <string name="btn_txt">Me apunto</string>
+    <string name="main_privacy_policy">Política de privacidad</string>
+    <string name="main_ver_condiciones">Ver Condiciones</string>
+    <string-array name="ages">
+        <item>0-5</item>
+        <item>6-11</item>
+        <item>12-17</item>
+        <item>18-99</item>
+    </string-array>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+
+</resources>

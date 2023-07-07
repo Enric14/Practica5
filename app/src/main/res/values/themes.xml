@@ -1,0 +1,40 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.Practica5" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/primaryColor</item>
+        <item name="colorPrimaryVariant">@color/primaryDarkColor</item>
+        <item name="colorOnPrimary">@color/onPrimary</item>
+
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/secondaryColor</item>
+        <item name="colorSecondaryVariant">@color/secondaryLightColor</item>
+        <item name="colorOnSecondary">@color/white</item>
+
+        <item name="android:windowBackground">@color/white</item>
+
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+
+        <item name="appPractica5H1">@style/TextAppearance.Practica5.Headline1</item>
+        <item name="appPractica5H2">@style/TextAppearance.Practica5.Headline2</item>
+        <item name="appPractica5H3">@style/TextAppearance.Practica5.Headline3</item>
+        <item name="appPractica5H4">@style/TextAppearance.Practica5.Headline4</item>
+        <item name="appPractica5H5">@style/TextAppearance.Practica5.Headline5</item>
+        <item name="appPractica5S1">@style/TextAppearance.Practica5.Subtitle1</item>
+        <item name="appPractica5S2">@style/TextAppearance.Practica5.Subtitle2</item>
+        <item name="appPractica5B2">@style/TextAppearance.Practica5.Body2</item>
+        <item name="appPractica5BtnFilledregister">@style/Button.Filledregister.Normal</item>
+        <item name="appPractica5BtnFilledregister2">@style/Button.Filledregister2.Normal</item>
+        <item name="appPractica5BtnFilledlogin">@style/Button.Filledlogin.Normal</item>
+        <item name="appPractica5BtnFilledpr">@style/Button.Filledpr.Normal</item>
+        <item name="appPractica5BtnFilledse">@style/Button.Filledse.Normal</item>
+        <item name="appPractica5BtnFilledth">@style/Button.Filledth.Normal</item>
+        <item name="appPractica5BtnFilledfo">@style/Button.Filledfo.Normal</item>
+        <item name="appPractica5ILFilledregister">@style/InputLayout.Filledregister.Normal</item>
+        <item name="appPractica5ILFilledregister2">@style/InputLayout.Filledregister2.Normal</item>
+        <item name="appPractica5ILFilledlogin">@style/InputLayout.Filledlogin.Normal</item>
+
+    </style>
+</resources>

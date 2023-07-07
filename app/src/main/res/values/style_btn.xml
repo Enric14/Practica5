@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Button.Filledregister" parent="Widget.MaterialComponents.Button">
+        <item name="android:textAllCaps">false</item>
+        <item name="android:enabled">false</item>
+        <item name="android:maxLines">1</item>
+        <item name="backgroundTint">@color/bg_btn_filled_register</item>
+        <item name="android:textColor">@color/bg_btn_txt_filled_register</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.Tokio.Rounded</item>
+    </style>
+
+    <style name="Button.Filledregister2" parent="Widget.MaterialComponents.Button">
+        <item name="android:maxLines">1</item>
+        <item name="iconGravity">textTop</item>
+        <item name="backgroundTint">@color/bg_btn_filled_register</item>
+        <item name="android:textColor">@color/bg_btn_txt_filled_register</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.Tokio.Rounded</item>
+    </style>
+
+    <style name="Button.Filledlogin" parent="Widget.MaterialComponents.Button">
+        <item name="android:textAllCaps">false</item>
+        <item name="android:enabled">false</item>
+        <item name="android:maxLines">1</item>
+        <item name="backgroundTint">@color/bg_btn_filled_login</item>
+        <item name="android:textColor">@color/bg_btn_txt_filled_login</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.Tokio.Rounded</item>
+    </style>
+
+    <style name="Button.Filledpr" parent="Widget.MaterialComponents.Button">
+        <item name="android:textAllCaps">false</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:backgroundTint">@color/bg_btn_filled_pr</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.Tokio.Rounded2</item>
+    </style>
+
+    <style name="Button.Filledse" parent="Widget.MaterialComponents.Button">
+        <item name="android:textAllCaps">false</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:backgroundTint">@color/bg_btn_filled_se</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.Tokio.Rounded3</item>
+    </style>
+
+    <style name="Button.Filledth" parent="Widget.MaterialComponents.Button">
+        <item name="android:textAllCaps">false</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:backgroundTint">@color/bg_btn_filled_th</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.Tokio.Rounded4</item>
+    </style>
+
+    <style name="Button.Filledfo" parent="Widget.MaterialComponents.Button">
+        <item name="android:textAllCaps">false</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:backgroundTint">@color/bg_btn_filled_fo</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.Tokio.Rounded5</item>
+    </style>
+</resources>

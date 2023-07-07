@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="InputLayout.Filledlogin" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="android:maxLines">1</item>
+        <item name="backgroundTint">@color/bg_input_layout_filled_login</item>
+        <item name="android:textColor">@color/bg_input_layout_txt_filled_login</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.Tokio.InputLayout</item>
+    </style>
+
+    <style name="InputLayout.Filledregister" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
+        <item name="android:maxLines">1</item>
+        <item name="backgroundTint">@color/bg_input_layout_filled_register</item>
+        <item name="android:textColor">@color/bg_input_layout_txt_filled_register</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.Tokio.InputLayout</item>
+    </style>
+
+    <style name="InputLayout.Filledregister2" parent="Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu">
+        <item name="android:maxLines">1</item>
+        <item name="backgroundTint">@color/bg_input_layout_filled_register</item>
+        <item name="android:textColor">@color/bg_input_layout_txt_filled_register</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.Tokio.InputLayout</item>
+    </style>
+</resources>
