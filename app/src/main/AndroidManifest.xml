@@ -16,16 +16,6 @@
             android:name=".MainActivityTres"
             android:exported="false" />
         <activity
-            android:name=".MainActivity3"
-            android:exported="false" />
-        <activity
-            android:name=".ui.login.LoginActivity"
-            android:exported="false"
-            android:label="@string/title_activity_login" />
-        <activity
-            android:name=".ActivityForResult"
-            android:exported="false" />
-        <activity
             android:name=".MainActivityDos"
             android:exported="false" />
         <activity

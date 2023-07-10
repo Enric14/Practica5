@@ -33,5 +33,11 @@
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
+    <string name="option_eurodisney">Eurodisney</string>
+    <string name="option_car">Alquila un coche</string>
+    <string name="main3_title_toolbar">Home</string>
+    <string name="main2_title_toolbar">Registro</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

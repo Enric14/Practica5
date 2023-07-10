@@ -7,6 +7,16 @@
     tools:context=".MainActivity"
     android:background="@color/primaryLightColor">
 
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/main2_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        app:titleTextColor="@color/white"
+        app:navigationIcon="@drawable/baseline_density_medium_24"
+        app:title="@string/main2_title_toolbar"
+        app:layout_constraintTop_toTopOf="parent"/>
+
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/main2_img"
         android:layout_width="wrap_content"

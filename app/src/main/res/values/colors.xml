@@ -11,6 +11,7 @@
     <color name="onPrimary">#EEEEEE</color>
     <color name="onSecundary">#BDBDBD</color>
     <color name="background">#FFFFFF</color>
+    <color name="colorFragment">#CC66FF</color>
     <color name="btn1Color">#BBDEFB</color>
     <color name="btn2Color">#BDBDBD</color>
     <color name="btn3Color">#F8BBD0</color>
