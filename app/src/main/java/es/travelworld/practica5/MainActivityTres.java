@@ -3,6 +3,7 @@ package es.travelworld.practica5;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -15,18 +16,23 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+
+import com.google.android.material.snackbar.Snackbar;
 
 import es.travelworld.practica5.databinding.ActivityMainThreeBinding;
 
 public class MainActivityTres extends AppCompatActivity {
 
     private ActivityMainThreeBinding binding;
+    ConstraintLayout constraintLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityMainThreeBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        ConstraintLayout constraintLayout = binding.main3ConstraintLayout;
 
         Intent intent = getIntent();
         String nombre = getIntent().getStringExtra("NOMBRE");
@@ -38,6 +44,7 @@ public class MainActivityTres extends AppCompatActivity {
 
         Log.d("HomeActivity", "NOMBRE: " + nombre + ", APELLIDOS: " + apellidos);
 
+        Snackbar.make(constraintLayout, "NOMBRE: null, APELLIDOS: null", Snackbar.LENGTH_LONG).show();
         binding.main3Toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
@@ -57,4 +64,5 @@ public class MainActivityTres extends AppCompatActivity {
             }
         });
     }
+
 }

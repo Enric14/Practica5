@@ -2,6 +2,8 @@ package es.travelworld.practica5;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -46,11 +48,20 @@ public class MainActivity extends AppCompatActivity {
 
             if(nombreGuardado != null && apellidosGuardados != null) {
                 if (nombreActual.equals(nombreGuardado) && apellidosActual.equals(apellidosGuardados)) {
-                Intent intent2 = new Intent(getApplicationContext(),MainActivityTres.class);
-                startActivity(intent2);
+                Intent intent = new Intent(getApplicationContext(),MainActivityTres.class);
+                startActivity(intent);
             } else {
-                surnames.setError("Usuario y/o password incorrectos");
+                    new AlertDialog.Builder(this)
+                            .setTitle("ERROR")
+                            .setMessage("Verifique los datos")
+                            .setNeutralButton(R.string.main_btn_message, new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                }
+                            })
+                            .show();
             }
+
         } else {
                 surnames.setError("Guarde nombre y apellidos");
         }
