@@ -105,7 +105,6 @@ public class MainDosFragment extends Fragment {
                 ageAutoCompleteTextView.setError("Esta app no es para ti");
 
             } else {
-                view.findViewById(R.id.main2_btn).setOnClickListener(view14 -> {
                     String nombre = name.getText().toString();
                     String apellidos = surnames.getText().toString();
                     SharedPreferences sharedPreferences = getActivity().getSharedPreferences("MyApp", MODE_PRIVATE);
@@ -115,8 +114,6 @@ public class MainDosFragment extends Fragment {
                     editor.apply();
                     NavHostFragment.findNavController(MainDosFragment.this)
                             .navigate(R.id.action_mainDosFragment_to_mainFragment);
-
-                });
             }
         });
     }
