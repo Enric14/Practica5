@@ -6,113 +6,22 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/main_img_city"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/city_img"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/main_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navigationIcon="@drawable/baseline_density_medium_24"
+        app:title="@string/main_title_toolbar"
+        app:titleTextColor="@color/white" />
 
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/main_login"
-        style="?appPractica5H4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginVertical="280dp"
-        android:text="@string/main_login"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        />
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/main_input_layout"
-        style="?appPractica5ILFilledlogin"
-        android:layout_marginVertical="220dp"
-        android:hint="@string/main_user"
-        app:endIconMode="clear_text"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/main_username"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/main_input_layout2"
-        style="?appPractica5ILFilledlogin"
-        android:layout_marginVertical="150dp"
-        android:hint="@string/main_password"
-        app:endIconMode="password_toggle"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/main_password"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textPassword" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/main_btn"
-        style="?appPractica5BtnFilledlogin"
-        android:text="@string/main_txt_btn"
-        app:icon="@drawable/baseline_arrow_forward_24"
-        android:layout_marginVertical="70dp"
-        android:onClick="btnlogin"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        />
-
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/main_forgot_password"
-        style="?appPractica5S1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/main_new_password"
-        android:layout_marginStart="110dp"
-        android:layout_marginVertical="45dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
-
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/main_get_new_password"
-        style="?appPractica5S2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/main_get_new_password"
-        android:layout_marginStart="10dp"
-        android:layout_marginVertical="45dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/main_forgot_password"/>
-
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/main_have_account"
-        style="?appPractica5S1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/main_have_new_account"
-        android:layout_marginStart="75dp"
-        android:layout_marginVertical="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
-
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/main_create_new_account"
-        style="?appPractica5S2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginVertical="20dp"
-        android:layout_marginStart="10dp"
-        android:text="@string/main_create_new_account_txt"
-        android:onClick="textviewCreateNew"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/main_have_account" />
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/main_content_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        app:defaultNavHost="true"
+        app:navGraph="@navigation/my_navigation"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

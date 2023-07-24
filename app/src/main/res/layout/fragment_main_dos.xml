@@ -4,18 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:background="@color/primaryLightColor">
+    android:background="@color/primaryLightColor"
+    tools:context=".MainDosFragment">
 
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/main2_toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="?attr/colorPrimary"
-        app:titleTextColor="@color/white"
+        app:layout_constraintTop_toTopOf="parent"
         app:navigationIcon="@drawable/baseline_density_medium_24"
         app:title="@string/main2_title_toolbar"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:titleTextColor="@color/white" />
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/main2_img"
@@ -25,8 +25,7 @@
         android:src="@drawable/face_img"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:onClick="abrirCamara"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/main2_btn2"
@@ -39,14 +38,13 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/main2_input_layout1"
         style="?appPractica5ILFilledregister"
+        android:layout_marginVertical="400dp"
         android:hint="@string/main_name"
         app:endIconMode="password_toggle"
+        app:errorEnabled="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginVertical="400dp"
-        app:errorEnabled="true"
-        app:startIconDrawable="@drawable/baseline_face_24"
-        >
+        app:startIconDrawable="@drawable/baseline_face_24">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/main2_input_name"
@@ -58,14 +56,13 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/main2_input_layout2"
         style="?appPractica5ILFilledregister"
+        android:layout_marginVertical="300dp"
         android:hint="@string/main_surname"
         app:endIconMode="password_toggle"
+        app:errorEnabled="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginVertical="300dp"
-        app:errorEnabled="true"
-        app:startIconDrawable="@drawable/baseline_face_24"
-        >
+        app:startIconDrawable="@drawable/baseline_face_24">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/main2_input_surnames"
@@ -77,41 +74,39 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/main2_input_layout3"
         style="?appPractica5ILFilledregister2"
+        android:layout_marginVertical="200dp"
         android:hint="@string/main_age"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:errorEnabled="true"
-        android:layout_marginVertical="200dp">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
         <AutoCompleteTextView
             android:id="@+id/main2_ages"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:inputType="none"
-            />
+            android:inputType="none" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/main2_btn"
         style="?appPractica5BtnFilledregister"
-        app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginVertical="100dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         android:text="@string/btn_txt"
-        />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/main2_text_view1"
         style="?appPractica5S1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/main_privacy_policy"
-        android:layout_marginStart="75dp"
         android:layout_marginVertical="65dp"
+        android:layout_marginStart="75dp"
+        android:text="@string/main_privacy_policy"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/main2_text_view2"
@@ -122,8 +117,6 @@
         android:layout_marginEnd="75dp"
         android:text="@string/main_ver_condiciones"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:onClick="abrirPolitica"
-        />
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

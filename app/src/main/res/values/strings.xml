@@ -40,5 +40,7 @@
     <string name="main_btn_message">Entendido</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="main_title_toolbar">Login</string>
+    <string name="main_title_collapsing_toolbar">Login</string>
 
 </resources>
