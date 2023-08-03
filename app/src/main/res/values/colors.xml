@@ -10,7 +10,11 @@
     <color name="secondaryTextColor">#FFFFFF</color>
     <color name="onPrimary">#EEEEEE</color>
     <color name="onSecundary">#BDBDBD</color>
+    <color name="transparent">#00000000</color>
     <color name="background">#FFFFFF</color>
+    <color name="backgrounOnboarding">#ECEFF1</color>
+    <color name="backgroundOnboardingDos">#FFCDD2</color>
+    <color name="backgroundOnboardingTres">#B3E5FC</color>
     <color name="colorFragment">#CC66FF</color>
     <color name="btn1Color">#BBDEFB</color>
     <color name="btn2Color">#BDBDBD</color>

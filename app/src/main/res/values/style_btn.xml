@@ -53,4 +53,38 @@
         <item name="android:backgroundTint">@color/bg_btn_filled_fo</item>
         <item name="shapeAppearance">@style/ShapeAppearance.Tokio.Rounded5</item>
     </style>
+
+    <style name="Button.Filledon" parent="Widget.MaterialComponents.Button">
+        <item name="android:textAllCaps">false</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:backgroundTint">@color/bg_btn_filled_onboarding</item>
+        <item name="android:textColor">@color/bg_btn_txt_filled_onboarding</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.Tokio.Rounded6</item>
+    </style>
+
+    <style name="Button.Filledondosone" parent="Widget.MaterialComponents.Button">
+        <item name="android:textAllCaps">false</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:backgroundTint">@color/bg_btn_filled_onboarding_dos_one</item>
+        <item name="android:textColor">@color/bg_btn_txt_filled_onboarding_dos_one</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.Tokio.Rounded7</item>
+    </style>
+
+    <style name="Button.Filledondostwo" parent="Widget.MaterialComponents.Button">
+        <item name="android:textAllCaps">false</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:backgroundTint">@color/bg_btn_filled_onboarding_dos_two</item>
+        <item name="android:textColor">@color/bg_btn_txt_filled_onboarding_dos_two</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.Tokio.Rounded7</item>
+    </style>
+
+    <style name="Button.Filledontres" parent="Widget.MaterialComponents.Button">
+        <item name="android:textAllCaps">false</item>
+        <item name="android:maxLines">1</item>
+        <item name="iconGravity">textEnd</item>
+        <item name="android:backgroundTint">@color/bg_btn_filled_onboarding_tres</item>
+        <item name="android:textColor">@color/bg_btn_txt_filled_onboarding_tres</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.Tokio.Rounded7</item>
+    </style>
+
 </resources>

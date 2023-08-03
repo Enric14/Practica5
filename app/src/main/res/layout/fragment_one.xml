@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/fragment_one"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/backgrounOnboarding">
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/main_titulo_onboarding_app"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/main_titulo_fragment_onboarding_app"
+        android:textAppearance="?appPractica5H3"
+        android:layout_marginVertical="25dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/main_descripcion_onboardng_app"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/main_descripcion_fragment_onboarding_app"
+        android:textAppearance="?appPractica5B2"
+        app:layout_constraintTop_toBottomOf="@+id/main_titulo_onboarding_app" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/main_img_onboarding_app"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="170dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/img_moto" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/materialTextView_onboarding"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="@color/secondaryColor"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/materialTextView_onboarding_next"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:background="@color/secondaryColor"
+        android:text="@string/materialtextview_next"
+        android:textAppearance="?appPractica5H5"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/materialTextView_onboarding"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/materialTextView_onboarding" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

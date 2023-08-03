@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/backgroundOnboardingTres">
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/main_titulo_onboarding_tres_app"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="25dp"
+        android:text="@string/main_titulo_fragment_onboarding_tres_app"
+        android:textAppearance="?appPractica5H3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/main_descripcion_onboarding_dos_app"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/main_descripcion_fragment_onboarding_dos_app"
+        android:textAppearance="?appPractica5B2"
+        app:layout_constraintTop_toBottomOf="@+id/main_titulo_onboarding_tres_app" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/main_img_onboarding_tres_app"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginVertical="30dp"
+        app:layout_constraintTop_toBottomOf="@+id/main_descripcion_onboarding_dos_app"
+        app:srcCompat="@drawable/img_chica" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/main_btn_onboarding_tres_app"
+        style="?appPractica5BtnFilledonboardingtres"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="@string/btn_txt_onboarding_tres"
+        app:icon="@drawable/baseline_expand_more_24"
+        android:layout_marginVertical="30dp"
+        app:iconTint="@color/black"
+        app:layout_constraintTop_toBottomOf="@+id/main_img_onboarding_tres_app" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

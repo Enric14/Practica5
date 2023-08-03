@@ -42,5 +42,15 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="main_title_toolbar">Login</string>
     <string name="main_title_collapsing_toolbar">Login</string>
+    <string name="main_titulo_fragment_onboarding_app">Tu App de Viajes</string>
+    <string name="main_descripcion_fragment_onboarding_app">Hola, estamos buscando a millones de usuarios\ncon inquietudes y ganas de viajar. Si eres tu? No\nlo dudes, accede a nuestra app y descubrirás\nmiles de destinos y facilidades para alquilar\ncoches, ver el tiempo...</string>
+    <string name="main_txt_btn_onboarding">Next</string>
+    <string name="main_titulo_fragment_onboarding_dos_app">Find your match!</string>
+    <string name="main_descripcion_fragment_onboarding_dos_app">We\'ve helped millions across the nation find\ntheir perfect match...and you\'re next!</string>
+    <string name="materialtextview_next">Next</string>
+    <string name="btn_txt_onboarding_dos_one">Skip</string>
+    <string name="btn_txt_onboarding_dos_two">Next</string>
+    <string name="main_titulo_fragment_onboarding_tres_app">Find the Perfect\nRoomate</string>
+    <string name="btn_txt_onboarding_tres">Login</string>
 
 </resources>

@@ -30,7 +30,6 @@
         android:id="@+id/main_input_layout"
         style="?appPractica5ILFilledlogin"
         android:layout_marginVertical="220dp"
-        android:hint="@string/main_user"
         app:endIconMode="clear_text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -38,7 +37,8 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/main_username"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:hint="@string/main_user"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -46,7 +46,6 @@
         android:id="@+id/main_input_layout2"
         style="?appPractica5ILFilledlogin"
         android:layout_marginVertical="150dp"
-        android:hint="@string/main_password"
         app:endIconMode="password_toggle"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -55,6 +54,7 @@
             android:id="@+id/main_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:hint="@string/main_password"
             android:inputType="textPassword" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -63,7 +63,6 @@
         android:id="@+id/main_btn"
         style="?appPractica5BtnFilledlogin"
         android:layout_marginVertical="70dp"
-        android:onClick="btnlogin"
         android:text="@string/main_txt_btn"
         app:icon="@drawable/baseline_arrow_forward_24"
         app:layout_constraintBottom_toBottomOf="parent"

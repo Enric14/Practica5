@@ -26,6 +26,16 @@
         <item name="cornerSize">20dp</item>
     </style>
 
+    <style name="ShapeAppearance.Tokio.Rounded6" parent="ShapeAppearance.MaterialComponents.MediumComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">30dp</item>
+    </style>
+
+    <style name="ShapeAppearance.Tokio.Rounded7" parent="ShapeAppearance.MaterialComponents.MediumComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">10dp</item>
+    </style>
+
     <!-- SHAPE-APPEARANCE INPUT LAYOUT -->
     <style name="ShapeAppearance.Tokio.InputLayout" parent="ShapeAppearance.MaterialComponents.LargeComponent">
         <item name="cornerFamily">rounded</item>
@@ -93,6 +103,42 @@
         <item name="android:gravity">center</item>
         <item name="iconTint">@color/black</item>
         <item name="android:textAppearance">@style/TextAppearance.AppCompat.Button</item>
+    </style>
+
+    <style name="Button.Filledon.Normal">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">45dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:paddingEnd">16dp</item>
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Button</item>
+    </style>
+
+    <style name="Button.Filledondosone.Normal">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">80dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:paddingStart">32dp</item>
+        <item name="android:paddingEnd">32dp</item>
+        <item name="android:textAppearance">@style/TextAppearance.Practica5.Headline4</item>
+    </style>
+
+    <style name="Button.Filledondostwo.Normal">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">80dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:paddingStart">32dp</item>
+        <item name="android:paddingEnd">32dp</item>
+        <item name="android:textAppearance">@style/TextAppearance.Practica5.Headline4</item>
+    </style>
+
+    <style name="Button.Filledontres.Normal">
+        <item name="android:layout_width">380dp</item>
+        <item name="android:layout_height">60dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:paddingEnd">16dp</item>
+        <item name="android:textAppearance">@style/TextAppearance.Practica5.Button</item>
     </style>
 
     <!-- INPUTS LAYOUTS -->

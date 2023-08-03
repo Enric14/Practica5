@@ -29,6 +29,7 @@
         <item name="fontFamily">@font/rubik</item>
         <item name="android:fontFamily">@font/rubik</item>
         <item name="android:textSize">21sp</item>
+        <item name="android:textColor">@color/white</item>
     </style>
 
     <style name="TextAppearance.Practica5.Headline6" parent="TextAppearance.MaterialComponents.Headline6">
@@ -54,19 +55,23 @@
     <style name="TextAppearance.Practica5.Body1" parent="TextAppearance.MaterialComponents.Body1">
         <item name="fontFamily">@font/roboto</item>
         <item name="android:fontFamily">@font/roboto</item>
-        <item name="android:textSize">18sp</item>
+        <item name="android:textSize">20sp</item>
     </style>
 
     <style name="TextAppearance.Practica5.Body2" parent="TextAppearance.MaterialComponents.Body2">
         <item name="fontFamily">@font/roboto</item>
         <item name="android:fontFamily">@font/roboto</item>
-        <item name="android:textSize">14sp</item>
+        <item name="android:textSize">18sp</item>
     </style>
 
     <style name="TextAppearance.Practica5.Button" parent="TextAppearance.MaterialComponents.Button">
         <item name="fontFamily">@font/roboto</item>
         <item name="android:fontFamily">@font/roboto</item>
         <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="TextAppearance.Practica5.Button.Inverse">
+        <item name="android:textColor">@color/white</item>
     </style>
 
     <style name="TextAppearance.Practica5.Caption" parent="TextAppearance.MaterialComponents.Caption">

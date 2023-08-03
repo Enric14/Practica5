@@ -4,6 +4,7 @@
     <attr name="appPractica5H2" format="reference"/>
     <attr name="appPractica5H3" format="reference"/>
     <attr name="appPractica5H4" format="reference"/>
+    <attr name="appPractica5H4Inverse" format="reference"/>
     <attr name="appPractica5H5" format="reference"/>
     <attr name="appPractica5S1" format="reference"/>
     <attr name="appPractica5S2" format="reference"/>
@@ -15,6 +16,10 @@
     <attr name="appPractica5BtnFilledse" format="reference"/>
     <attr name="appPractica5BtnFilledth" format="reference"/>
     <attr name="appPractica5BtnFilledfo" format="reference"/>
+    <attr name="appPractica5BtnFilledonboarding" format="reference"/>
+    <attr name="appPractica5BtnFilledonboardingdosone" format="reference"/>
+    <attr name="appPractica5BtnFilledonboardingdostwo" format="reference"/>
+    <attr name="appPractica5BtnFilledonboardingtres" format="reference"/>
     <attr name="appPractica5ILFilledregister" format="reference"/>
     <attr name="appPractica5ILFilledregister2" format="reference"/>
     <attr name="appPractica5ILFilledlogin" format="reference"/>
