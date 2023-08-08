@@ -31,8 +31,6 @@ public class MainTresFragment extends Fragment {
 
     private FragmentMainTresBinding binding;
     private ConstraintLayout constraintLayout;
-    private MaterialToolbar materialToolbar;
-    private ConstraintLayout constraintFragmentTres;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -40,6 +38,7 @@ public class MainTresFragment extends Fragment {
         // Inflate the layout for this fragment
         binding = FragmentMainTresBinding.inflate(inflater, container, false);
         return binding.getRoot();
+
     }
 
     @Override
@@ -47,27 +46,6 @@ public class MainTresFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         constraintLayout = binding.main3Constraint;
-        materialToolbar = binding.main3Toolbar;
-        constraintFragmentTres = binding.main3Constraint;
-
-        materialToolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
-            @Override
-            public boolean onMenuItemClick(MenuItem item) {
-                if (item.getItemId() == R.id.menu_eurodisney) {
-                    Intent intentEurodisney = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.disneylandparis.com/ es-es/?country=es&ecid=SEM_IP_S_3681537557-c-98352306134-88087225-661075406384-Exact&gclsrc=aw.ds&&mkwid=9yQLWOgc&gclid=EAIaIQobChMIqpzEwYn__wIVyzfUAR3EYgp7EAAYASAAEgLFNPD_BwE&pcrid=661075406384&pmt=e&pkw=eurodisney"));
-                    startActivity(intentEurodisney);
-
-                } else {
-                    getActivity().getSupportFragmentManager().beginTransaction();
-                    NavHostFragment.findNavController(MainTresFragment.this)
-                            .navigate(R.id.action_mainTresFragment_to_mainCuatroFragment);
-                    constraintFragmentTres.setVisibility(View.GONE);
-
-                }
-                return false;
-            }
-        });
-
 
         Intent intent = getActivity().getIntent();
         String nombre = getActivity().getIntent().getStringExtra("NOMBRE");

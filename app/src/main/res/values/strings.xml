@@ -52,5 +52,8 @@
     <string name="btn_txt_onboarding_dos_two">Next</string>
     <string name="main_titulo_fragment_onboarding_tres_app">Find the Perfect\nRoomate</string>
     <string name="btn_txt_onboarding_tres">Login</string>
+    <string name="fragment_home_one_description">Este fragment ocupa la posición 1</string>
+    <string name="fragment_home_two_description">Este fragment ocupa la posición 2</string>
+    <string name="fragment_home_three_description">Este fragment ocupa la posición 3</string>
 
 </resources>
