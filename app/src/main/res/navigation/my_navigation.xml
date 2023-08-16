@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_navigation"
+    app:startDestination="@id/oneFragment">
+
+    <fragment
+        android:id="@+id/oneFragment"
+        android:name="es.travelworld.practica5.OneFragment"
+        android:label="OneFragment" >
+        <action
+            android:id="@+id/action_oneFragment_to_twoFragment"
+            app:destination="@id/twoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/twoFragment"
+        android:name="es.travelworld.practica5.TwoFragment"
+        android:label="TwoFragment" >
+        <action
+            android:id="@+id/action_twoFragment_to_threeFragment"
+            app:destination="@id/threeFragment" />
+        <action
+            android:id="@+id/action_twoFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/threeFragment"
+        android:name="es.travelworld.practica5.ThreeFragment"
+        android:label="ThreeFragment" >
+        <action
+            android:id="@+id/action_threeFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="es.travelworld.practica5.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainFragment_to_mainDosFragment"
+            app:destination="@id/mainDosFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/mainDosFragment"
+        android:name="es.travelworld.practica5.MainDosFragment"
+        android:label="fragment_main_dos"
+        tools:layout="@layout/fragment_main_dos" >
+        <action
+            android:id="@+id/action_mainDosFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+</navigation>
