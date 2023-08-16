@@ -32,6 +32,7 @@ public class OneFragment extends Fragment {
         // Inflate the layout for this fragment
         binding = FragmentOneBinding.inflate(inflater, container, false);
         return binding.getRoot();
+
     }
 
     @Override
@@ -40,7 +41,8 @@ public class OneFragment extends Fragment {
 
         textView = binding.materialTextViewOnboardingNext;
 
-        textView.setOnClickListener(view1 -> ((MainOnboardingActivity) getActivity()).moveToNextPage());
+        textView.setOnClickListener(view1 -> NavHostFragment.findNavController(OneFragment.this)
+                .navigate(R.id.action_oneFragment_to_twoFragment));
 
     }
 }

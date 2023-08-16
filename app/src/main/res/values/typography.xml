@@ -28,7 +28,7 @@
     <style name="TextAppearance.Practica5.Headline5" parent="TextAppearance.MaterialComponents.Headline5">
         <item name="fontFamily">@font/rubik</item>
         <item name="android:fontFamily">@font/rubik</item>
-        <item name="android:textSize">21sp</item>
+        <item name="android:textSize">25sp</item>
         <item name="android:textColor">@color/white</item>
     </style>
 
@@ -56,6 +56,7 @@
         <item name="fontFamily">@font/roboto</item>
         <item name="android:fontFamily">@font/roboto</item>
         <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/white</item>
     </style>
 
     <style name="TextAppearance.Practica5.Body2" parent="TextAppearance.MaterialComponents.Body2">

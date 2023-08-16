@@ -33,8 +33,6 @@
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
-    <string name="option_eurodisney">Eurodisney</string>
-    <string name="option_car">Alquila un coche</string>
     <string name="main3_title_toolbar">Home</string>
     <string name="main2_title_toolbar">Registro</string>
     <string name="main_btn_message">Entendido</string>
@@ -55,5 +53,7 @@
     <string name="fragment_home_one_description">Este fragment ocupa la posición 1</string>
     <string name="fragment_home_two_description">Este fragment ocupa la posición 2</string>
     <string name="fragment_home_three_description">Este fragment ocupa la posición 3</string>
+    <string name="nombre_classic_car">Classic Car</string>
+    <string name="precio_classic_car">$34/day</string>
 
 </resources>

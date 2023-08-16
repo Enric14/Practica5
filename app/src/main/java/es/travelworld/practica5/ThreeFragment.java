@@ -9,6 +9,9 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.fragment.NavHostFragment;
+
+import com.google.android.material.button.MaterialButton;
 
 import es.travelworld.practica5.databinding.FragmentThreeBinding;
 import es.travelworld.practica5.databinding.FragmentTwoBinding;
@@ -16,6 +19,8 @@ import es.travelworld.practica5.databinding.FragmentTwoBinding;
 public class ThreeFragment extends Fragment {
 
     private FragmentThreeBinding binding;
+
+    private MaterialButton materialButton;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -29,12 +34,11 @@ public class ThreeFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        view.findViewById(R.id.main_btn_onboarding_tres_app).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getActivity(),MainActivity.class);
-                startActivity(intent);
-            }
-        });
+        materialButton = binding.mainBtnOnboardingTresApp;
+
+        materialButton.setOnClickListener(view1 -> NavHostFragment.findNavController(ThreeFragment.this)
+                .navigate(R.id.action_threeFragment_to_mainFragment));
+
+
     }
 }

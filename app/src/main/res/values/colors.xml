@@ -21,6 +21,14 @@
     <color name="btn3Color">#F8BBD0</color>
     <color name="btn4Color">#FFD180</color>
     <color name="btn5Color">#FFD600</color>
+    <color name="classicCar">#795548</color>
+    <color name="sportCar">#03A9F4</color>
+    <color name="flyingCar">#9575CD</color>
+    <color name="electricCar">#1A237E</color>
+    <color name="motorHome">#B2DFDB</color>
+    <color name="pickUp">#A1887F</color>
+    <color name="airPlane">#E57373</color>
+    <color name="bus">#FFE57F</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 </resources>

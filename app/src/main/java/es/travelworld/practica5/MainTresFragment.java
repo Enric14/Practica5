@@ -57,7 +57,7 @@ public class MainTresFragment extends Fragment {
 
         Log.d("HomeActivity", "NOMBRE: " + nombre + ", APELLIDOS: " + apellidos);
 
-        Snackbar.make(constraintLayout, "NOMBRE: null, APELLIDOS: null", Snackbar.LENGTH_LONG).show();
+        //Snackbar.make(constraintLayout, "NOMBRE: null, APELLIDOS: null", Snackbar.LENGTH_LONG).show();
 
     }
 }
