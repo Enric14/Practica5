@@ -30,12 +30,13 @@ public class MainFragment extends Fragment {
     private FragmentMainBinding binding;
     private ConstraintLayout constraintLayout;
     private EditText name, surnames;
+    private Bundle bundle;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        binding = FragmentMainBinding.inflate(inflater,container,false);
+        binding = FragmentMainBinding.inflate(inflater, container, false);
         return binding.getRoot();
 
     }
@@ -47,6 +48,7 @@ public class MainFragment extends Fragment {
         constraintLayout = binding.mainContent1Fragment;
         name = binding.mainUsername;
         surnames = binding.mainPassword;
+
 
         view.findViewById(R.id.main_create_new_account).setOnClickListener(view1 -> {
             NavHostFragment.findNavController(MainFragment.this)
@@ -107,6 +109,8 @@ public class MainFragment extends Fragment {
             }
 
         });
+
     }
 
 }
+

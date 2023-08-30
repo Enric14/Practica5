@@ -49,4 +49,12 @@
         android:layout_height="match_parent"
         android:layout_marginTop="110dp"/>
 
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/main3_content_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="110dp"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        app:defaultNavHost="true"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

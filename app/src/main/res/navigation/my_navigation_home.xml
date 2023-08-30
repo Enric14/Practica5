@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_navigation_home"
+    app:startDestination="@id/mainTresFragment">
+
+    <fragment
+        android:id="@+id/mainTresFragment"
+        android:name="es.travelworld.practica5.MainTresFragment"
+        android:label="fragment_main_tres"
+        tools:layout="@layout/fragment_main_tres" />
+</navigation>

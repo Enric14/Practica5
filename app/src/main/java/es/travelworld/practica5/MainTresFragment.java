@@ -23,6 +23,7 @@ import android.view.ViewGroup;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.android.material.textview.MaterialTextView;
 
 import es.travelworld.practica5.databinding.FragmentMainBinding;
 import es.travelworld.practica5.databinding.FragmentMainTresBinding;
@@ -32,12 +33,15 @@ public class MainTresFragment extends Fragment {
     private FragmentMainTresBinding binding;
     private ConstraintLayout constraintLayout;
 
+    private Bundle bundle;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         binding = FragmentMainTresBinding.inflate(inflater, container, false);
         return binding.getRoot();
+
 
     }
 

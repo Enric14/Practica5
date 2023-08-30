@@ -32,6 +32,7 @@ public class MainDosFragment extends Fragment {
     private MaterialButton photoButton;
     private MaterialTextView materialTextView;
     private TextInputEditText name, surnames;
+    private Bundle bundle;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -105,15 +106,15 @@ public class MainDosFragment extends Fragment {
                 ageAutoCompleteTextView.setError("Esta app no es para ti");
 
             } else {
-                    String nombre = name.getText().toString();
-                    String apellidos = surnames.getText().toString();
-                    SharedPreferences sharedPreferences = getActivity().getSharedPreferences("MyApp", MODE_PRIVATE);
-                    SharedPreferences.Editor editor = sharedPreferences.edit();
-                    editor.putString("NOMBRE", nombre);
-                    editor.putString("APELLIDOS", apellidos);
-                    editor.apply();
-                    NavHostFragment.findNavController(MainDosFragment.this)
-                            .navigate(R.id.action_mainDosFragment_to_mainFragment);
+                String nombre = name.getText().toString();
+                String apellidos = surnames.getText().toString();
+                SharedPreferences sharedPreferences = getActivity().getSharedPreferences("MyApp", MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putString("NOMBRE", nombre);
+                editor.putString("APELLIDOS", apellidos);
+                editor.apply();
+                NavHostFragment.findNavController(MainDosFragment.this)
+                        .navigate(R.id.action_mainDosFragment_to_mainFragment);
             }
         });
     }
