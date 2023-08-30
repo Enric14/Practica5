@@ -45,12 +45,6 @@
         android:name="es.travelworld.practica5.MainFragment"
         android:label="fragment_main"
         tools:layout="@layout/fragment_main" >
-        <argument
-            android:name="nombre"
-            app:argType="string" />
-        <argument
-            android:name="apellidos"
-            app:argType="string" />
         <action
             android:id="@+id/action_mainFragment_to_mainDosFragment"
             app:destination="@id/mainDosFragment"
@@ -62,12 +56,6 @@
         android:name="es.travelworld.practica5.MainDosFragment"
         android:label="fragment_main_dos"
         tools:layout="@layout/fragment_main_dos" >
-        <argument
-            android:name="nombre"
-            app:argType="string" />
-        <argument
-            android:name="apellidos"
-            app:argType="string" />
         <action
             android:id="@+id/action_mainDosFragment_to_mainFragment"
             app:destination="@id/mainFragment"
