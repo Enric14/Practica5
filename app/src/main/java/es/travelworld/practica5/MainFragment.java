@@ -12,12 +12,14 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentResultListener;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
 
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -80,18 +82,27 @@ public class MainFragment extends Fragment {
         name.addTextChangedListener(textWatcher);
         surnames.addTextChangedListener(textWatcher);
 
-        SharedPreferences sharedPreferences =getActivity().getSharedPreferences("MyApp", MODE_PRIVATE);
+        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("MyApp", MODE_PRIVATE);
 
         view.findViewById(R.id.main_btn).setOnClickListener(view12 -> {
             String nombreGuardado = sharedPreferences.getString("NOMBRE", null);
             String apellidosGuardados = sharedPreferences.getString("APELLIDOS", null);
             String nombreActual = name.getText().toString();
             String apellidosActual = surnames.getText().toString();
-            if(nombreGuardado != null && apellidosGuardados != null) {
-                if (nombreActual.equals(nombreGuardado) && apellidosActual.equals(apellidosGuardados)) {
-                    Intent intent = new Intent(getActivity(),MainActivityTres.class);
-                    startActivity(intent);
 
+            if (nombreGuardado != null && apellidosGuardados != null) {
+                if (nombreActual.equals(nombreGuardado) && apellidosActual.equals(apellidosGuardados)) {
+                    Bundle bundle = new Bundle();
+                    bundle.putString("nombre", "****dato prueba****");
+                    Intent intent = new Intent(getActivity(), MainActivityTres.class);
+                    intent.putExtra("dato_a_Activity_Tres", bundle);
+                    startActivity(intent);
+                    getParentFragmentManager().setFragmentResultListener("dato_main_dos_fragment", this, new FragmentResultListener() {
+                        @Override
+                        public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle result) {
+                            Log.d("depurando", result.getString("nombre"));
+                        }
+                    });
                 } else {
                     new AlertDialog.Builder(getContext())
                             .setTitle("ERROR")

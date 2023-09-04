@@ -31,6 +31,7 @@ public class MainDosFragment extends Fragment {
     private FragmentMainDosBinding binding;
     private MaterialButton photoButton;
     private MaterialTextView materialTextView;
+
     private TextInputEditText name, surnames;
     private Bundle bundle;
 
@@ -38,7 +39,7 @@ public class MainDosFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        binding = FragmentMainDosBinding.inflate(inflater,container,false);
+        binding = FragmentMainDosBinding.inflate(inflater, container, false);
         return binding.getRoot();
 
     }
@@ -111,6 +112,10 @@ public class MainDosFragment extends Fragment {
                 SharedPreferences sharedPreferences = getActivity().getSharedPreferences("MyApp", MODE_PRIVATE);
                 SharedPreferences.Editor editor = sharedPreferences.edit();
                 editor.putString("NOMBRE", nombre);
+                Bundle bundle = new Bundle();
+                bundle.putString("nombre", nombre);
+                getParentFragmentManager().setFragmentResult("dato_main_dos_fragment", bundle);
+
                 editor.putString("APELLIDOS", apellidos);
                 editor.apply();
                 NavHostFragment.findNavController(MainDosFragment.this)

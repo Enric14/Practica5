@@ -33,7 +33,36 @@ public class MainTresFragment extends Fragment {
     private FragmentMainTresBinding binding;
     private ConstraintLayout constraintLayout;
 
-    private Bundle bundle;
+    private String dato_recibido;
+
+
+    /**
+     * VictorVergel.
+     * Añadimos el constructor estático para crear el Fragment y le metemos como parámetro del bundle
+     */
+
+    private static final String ARG_PARAM1 = "param1";
+
+    public MainTresFragment() {
+        // Required empty public constructor
+    }
+
+    public static MainTresFragment newInstance(Bundle param1) {
+        MainTresFragment fragment = new MainTresFragment();
+        /*Bundle args = new Bundle();
+        args.putBundle(ARG_PARAM1,param1);*/
+        fragment.setArguments(param1);
+        return fragment;
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        if (getArguments() != null) {
+            dato_recibido = getArguments().getString("nombre");
+        }
+    }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -41,15 +70,17 @@ public class MainTresFragment extends Fragment {
         // Inflate the layout for this fragment
         binding = FragmentMainTresBinding.inflate(inflater, container, false);
         return binding.getRoot();
-
-
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        constraintLayout = binding.main3Constraint;
+        /** VictorVergel
+         * Recuperamos el dato metido en el Bundle
+         */
+        Log.d("depurando", "Llega a MainTresFragment el dato a través de Bundle: " + dato_recibido);
+
 
         Intent intent = getActivity().getIntent();
         String nombre = getActivity().getIntent().getStringExtra("NOMBRE");
