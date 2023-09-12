@@ -57,7 +57,7 @@
         android:id="@+id/main2_input_layout2"
         style="?appPractica5ILFilledregister"
         android:layout_marginVertical="300dp"
-        android:hint="@string/main_surname"
+        android:hint="@string/main_choose_password"
         app:endIconMode="password_toggle"
         app:errorEnabled="true"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -65,7 +65,7 @@
         app:startIconDrawable="@drawable/baseline_face_24">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/main2_input_surnames"
+            android:id="@+id/main2_input_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 

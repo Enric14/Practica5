@@ -3,10 +3,15 @@ package es.travelworld.practica5;
 import static android.content.Context.MODE_PRIVATE;
 
 import android.Manifest;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -14,6 +19,8 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.app.ActivityCompat;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 import androidx.core.content.ContextCompat;
 import androidx.core.content.PackageManagerCompat;
 import androidx.fragment.app.Fragment;
@@ -65,6 +72,36 @@ public class MainTresFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            NotificationChannel channel = new NotificationChannel("Notification", "Notification", NotificationManager.IMPORTANCE_DEFAULT);
+            NotificationManager manager = getActivity().getSystemService(NotificationManager.class);
+            manager.createNotificationChannel(channel);
+        }
+
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(getActivity(), "Notification");
+        builder.setContentTitle("Bienvenido/a");
+        builder.setContentText("Nos alegra verte en este paraíso");
+        builder.setSmallIcon(R.drawable.baseline_beach_access_24);
+        builder.setAutoCancel(true);
+
+        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.notification_img);
+        builder.setLargeIcon(bitmap);
+        builder.setStyle(new NotificationCompat.BigPictureStyle().bigPicture(bitmap).bigLargeIcon(null));
+
+        NotificationManagerCompat managerCompat = NotificationManagerCompat.from(getActivity());
+        if (ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            return;
+        }
+        managerCompat.notify(1, builder.build());
+
         requestPermissions();
 
         if (getArguments() != null) {
@@ -89,13 +126,13 @@ public class MainTresFragment extends Fragment {
 
         Intent intent = getActivity().getIntent();
         String nombre = getActivity().getIntent().getStringExtra("NOMBRE");
-        String apellidos = getActivity().getIntent().getStringExtra("APELLIDOS");
+        String contraseña = getActivity().getIntent().getStringExtra("PASSWORD");
 
         SharedPreferences sharedPreferences = getActivity().getSharedPreferences("MyApp", MODE_PRIVATE);
         String username = sharedPreferences.getString("NOMBRE", null);
-        String password = sharedPreferences.getString("APELLIDOS", null);
+        String password = sharedPreferences.getString("PASSWORD", null);
 
-        Log.d("HomeActivity", "NOMBRE: " + nombre + ", APELLIDOS: " + apellidos);
+        Log.d("HomeActivity", "NOMBRE: " + nombre + ", PASSWORD: " + password);
 
     }
 

@@ -31,7 +31,7 @@ public class MainFragment extends Fragment {
 
     private FragmentMainBinding binding;
     private ConstraintLayout constraintLayout;
-    private EditText name, surnames;
+    private EditText name, password;
     private Bundle bundle;
 
     @Override
@@ -49,7 +49,7 @@ public class MainFragment extends Fragment {
 
         constraintLayout = binding.mainContent1Fragment;
         name = binding.mainUsername;
-        surnames = binding.mainPassword;
+        password = binding.mainPassword;
 
 
         view.findViewById(R.id.main_create_new_account).setOnClickListener(view1 -> {
@@ -80,18 +80,18 @@ public class MainFragment extends Fragment {
         };
 
         name.addTextChangedListener(textWatcher);
-        surnames.addTextChangedListener(textWatcher);
+        password.addTextChangedListener(textWatcher);
 
         SharedPreferences sharedPreferences = getActivity().getSharedPreferences("MyApp", MODE_PRIVATE);
 
         view.findViewById(R.id.main_btn).setOnClickListener(view12 -> {
             String nombreGuardado = sharedPreferences.getString("NOMBRE", null);
-            String apellidosGuardados = sharedPreferences.getString("APELLIDOS", null);
+            String passwordGuardado = sharedPreferences.getString("PASSWORD", null);
             String nombreActual = name.getText().toString();
-            String apellidosActual = surnames.getText().toString();
+            String passwordActual = password.getText().toString();
 
-            if (nombreGuardado != null && apellidosGuardados != null) {
-                if (nombreActual.equals(nombreGuardado) && apellidosActual.equals(apellidosGuardados)) {
+            if (nombreGuardado != null && passwordGuardado != null) {
+                if (nombreActual.equals(nombreGuardado) && passwordActual.equals(passwordGuardado)) {
                     Bundle bundle = new Bundle();
                     bundle.putString("nombre", "****dato prueba****");
                     Intent intent = new Intent(getActivity(), MainActivityTres.class);

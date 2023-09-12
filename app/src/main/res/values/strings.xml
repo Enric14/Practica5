@@ -55,5 +55,6 @@
     <string name="fragment_home_three_description">Este fragment ocupa la posición 3</string>
     <string name="nombre_classic_car">Classic Car</string>
     <string name="precio_classic_car">$34/day</string>
+    <string name="main_choose_password">Escoge una contraseña</string>
 
 </resources>

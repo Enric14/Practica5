@@ -32,7 +32,7 @@ public class MainDosFragment extends Fragment {
     private MaterialButton photoButton;
     private MaterialTextView materialTextView;
 
-    private TextInputEditText name, surnames;
+    private TextInputEditText name, password;
     private Bundle bundle;
 
     @Override
@@ -51,7 +51,7 @@ public class MainDosFragment extends Fragment {
         photoButton = binding.main2Btn2;
         materialTextView = binding.main2TextView2;
         name = binding.main2InputName;
-        surnames = binding.main2InputSurnames;
+        password = binding.main2InputPassword;
         AutoCompleteTextView ageAutoCompleteTextView = binding.main2Ages;
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(getContext(),
                 android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.ages));
@@ -78,7 +78,7 @@ public class MainDosFragment extends Fragment {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 String text1 = binding.main2InputName.getText().toString().trim();
-                String text2 = binding.main2InputSurnames.getText().toString().trim();
+                String text2 = binding.main2InputPassword.getText().toString().trim();
                 binding.main2Btn.setEnabled(!text1.isEmpty() && !text2.isEmpty());
 
             }
@@ -90,25 +90,25 @@ public class MainDosFragment extends Fragment {
         };
 
         name.addTextChangedListener(textWatcher);
-        surnames.addTextChangedListener(textWatcher);
+        password.addTextChangedListener(textWatcher);
 
         view.findViewById(R.id.main2_btn).setOnClickListener(view13 -> {
             String inputTextName = name.getText().toString();
-            String inputTextSurnames = surnames.getText().toString();
+            String inputTextPassword = password.getText().toString();
             String ageSelected = ageAutoCompleteTextView.getText().toString();
 
             if (inputTextName.contains(".") || inputTextName.contains("@")) {
                 name.setError("Ups, no creo que sea correcto, revísalo");
 
-            } else if (inputTextSurnames.contains(".") || inputTextSurnames.contains("@")) {
-                surnames.setError("Ups, no creo que sea correcto, revísalo");
+            } else if (inputTextPassword.contains(".") || inputTextPassword.contains("@")) {
+                password.setError("Ups, no creo que sea correcto, revísalo");
 
             } else if (!ageSelected.contains("18-99")) {
                 ageAutoCompleteTextView.setError("Esta app no es para ti");
 
             } else {
                 String nombre = name.getText().toString();
-                String apellidos = surnames.getText().toString();
+                String contraseña = password.getText().toString();
                 SharedPreferences sharedPreferences = getActivity().getSharedPreferences("MyApp", MODE_PRIVATE);
                 SharedPreferences.Editor editor = sharedPreferences.edit();
                 editor.putString("NOMBRE", nombre);
@@ -116,7 +116,7 @@ public class MainDosFragment extends Fragment {
                 bundle.putString("nombre", nombre);
                 getParentFragmentManager().setFragmentResult("dato_main_dos_fragment", bundle);
 
-                editor.putString("APELLIDOS", apellidos);
+                editor.putString("PASSWORD", contraseña);
                 editor.apply();
                 NavHostFragment.findNavController(MainDosFragment.this)
                         .navigate(R.id.action_mainDosFragment_to_mainFragment);
