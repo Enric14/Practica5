@@ -80,7 +80,7 @@ public class MainTresFragment extends Fragment {
         }
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(getActivity(), "Notification");
-        builder.setContentTitle("Bienvenido/a");
+        builder.setContentTitle("Bienvenido/a " +dato_recibido);
         builder.setContentText("Nos alegra verte en este paraíso");
         builder.setSmallIcon(R.drawable.baseline_beach_access_24);
         builder.setAutoCancel(true);
