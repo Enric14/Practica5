@@ -56,6 +56,7 @@ public class MainTresFragment extends Fragment {
     private FragmentMainTresBinding binding;
     private ConstraintLayout constraintLayout;
     private String dato_recibido;
+    private String username;
 
     private static final String ARG_PARAM1 = "param1";
 
@@ -73,41 +74,10 @@ public class MainTresFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            NotificationChannel channel = new NotificationChannel("Notification", "Notification", NotificationManager.IMPORTANCE_DEFAULT);
-            NotificationManager manager = getActivity().getSystemService(NotificationManager.class);
-            manager.createNotificationChannel(channel);
-        }
-
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(getActivity(), "Notification");
-        builder.setContentTitle("Bienvenido/a " +dato_recibido);
-        builder.setContentText("Nos alegra verte en este paraíso");
-        builder.setSmallIcon(R.drawable.baseline_beach_access_24);
-        builder.setAutoCancel(true);
-
-        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.notification_img);
-        builder.setLargeIcon(bitmap);
-        builder.setStyle(new NotificationCompat.BigPictureStyle().bigPicture(bitmap).bigLargeIcon(null));
-
-        NotificationManagerCompat managerCompat = NotificationManagerCompat.from(getActivity());
-        if (ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
-            return;
-        }
-        managerCompat.notify(1, builder.build());
-
-        requestPermissions();
-
         if (getArguments() != null) {
             dato_recibido = getArguments().getString("nombre");
         }
-
+        requestPermissions();
     }
 
     @Override
@@ -132,7 +102,36 @@ public class MainTresFragment extends Fragment {
         String username = sharedPreferences.getString("NOMBRE", null);
         String password = sharedPreferences.getString("PASSWORD", null);
 
-        Log.d("HomeActivity", "NOMBRE: " + nombre + ", PASSWORD: " + password);
+        Log.d("HomeActivity", "NOMBRE: " + username + ", PASSWORD: " + password);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            NotificationChannel channel = new NotificationChannel("Notification", "Notification", NotificationManager.IMPORTANCE_DEFAULT);
+            NotificationManager manager = getActivity().getSystemService(NotificationManager.class);
+            manager.createNotificationChannel(channel);
+        }
+
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(getActivity(), "Notification");
+        builder.setContentTitle("Bienvenido/a "+username);
+        builder.setContentText("Nos alegra verte en este paraíso");
+        builder.setSmallIcon(R.drawable.baseline_beach_access_24);
+        builder.setAutoCancel(true);
+
+        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.notification_img);
+        builder.setLargeIcon(bitmap);
+        builder.setStyle(new NotificationCompat.BigPictureStyle().bigPicture(bitmap).bigLargeIcon(null));
+
+        NotificationManagerCompat managerCompat = NotificationManagerCompat.from(getActivity());
+        if (ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            return;
+        }
+        managerCompat.notify(1, builder.build());
 
     }
 
@@ -161,6 +160,5 @@ public class MainTresFragment extends Fragment {
             }
         }).check();
     }
-
 }
 
