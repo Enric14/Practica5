@@ -17,6 +17,7 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
 
+import android.os.Handler;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -25,13 +26,18 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 
+import com.google.android.material.snackbar.Snackbar;
+
 import es.travelworld.practica5.databinding.FragmentMainBinding;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class MainFragment extends Fragment {
 
     private FragmentMainBinding binding;
     private ConstraintLayout constraintLayout;
-    private EditText name, password;
+    private EditText username, password;
     private Bundle bundle;
 
     @Override
@@ -48,7 +54,7 @@ public class MainFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         constraintLayout = binding.mainContent1Fragment;
-        name = binding.mainUsername;
+        username = binding.mainUsername;
         password = binding.mainPassword;
 
 
@@ -79,48 +85,42 @@ public class MainFragment extends Fragment {
             }
         };
 
-        name.addTextChangedListener(textWatcher);
+        username.addTextChangedListener(textWatcher);
         password.addTextChangedListener(textWatcher);
 
-        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("MyApp", MODE_PRIVATE);
-
         view.findViewById(R.id.main_btn).setOnClickListener(view12 -> {
-            String nombreGuardado = sharedPreferences.getString("NOMBRE", null);
-            String passwordGuardado = sharedPreferences.getString("PASSWORD", null);
-            String nombreActual = name.getText().toString();
-            String passwordActual = password.getText().toString();
-
-            if (nombreGuardado != null && passwordGuardado != null) {
-                if (nombreActual.equals(nombreGuardado) && passwordActual.equals(passwordGuardado)) {
-                    Bundle bundle = new Bundle();
-                    bundle.putString("nombre", "****dato prueba****");
-                    Intent intent = new Intent(getActivity(), MainActivityTres.class);
-                    intent.putExtra("dato_a_Activity_Tres", bundle);
-                    startActivity(intent);
-                    getParentFragmentManager().setFragmentResultListener("dato_main_dos_fragment", this, new FragmentResultListener() {
-                        @Override
-                        public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle result) {
-                            Log.d("depurando", result.getString("nombre"));
-                        }
-                    });
-                } else {
-                    new AlertDialog.Builder(getContext())
-                            .setTitle("ERROR")
-                            .setMessage("Verifique los datos")
-                            .setNeutralButton(R.string.main_btn_message, new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                }
-                            })
-                            .show();
-                }
-
-            } else {
-
-            }
+            login();
 
         });
 
+    }
+
+    public void login() {
+        LoginRequest loginRequest = new LoginRequest();
+        loginRequest.setUsername(username.getText().toString());
+        loginRequest.setPassword(password.getText().toString());
+
+        Call<LoginResponse> loginResponseCall = ApiClient.getService().userLogin(loginRequest);
+        loginResponseCall.enqueue(new Callback<LoginResponse>() {
+            @Override
+            public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
+                if (response.isSuccessful()) {
+                    LoginResponse loginResponse = response.body();
+                    startActivity(new Intent(getActivity(), MainActivityTres.class).putExtra("data", loginResponse.getNombre()));
+
+                } else {
+                    Snackbar snackbar = Snackbar.make(constraintLayout, "Acceso denegado, revisa los datos...", Snackbar.LENGTH_LONG);
+                    snackbar.show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<LoginResponse> call, Throwable t) {
+                Snackbar snackbar = Snackbar.make(constraintLayout, "Throwable "+t.getLocalizedMessage(), Snackbar.LENGTH_LONG);
+                snackbar.show();
+
+            }
+        });
     }
 
 }

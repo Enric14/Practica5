@@ -55,29 +55,12 @@ public class MainTresFragment extends Fragment {
 
     private FragmentMainTresBinding binding;
     private ConstraintLayout constraintLayout;
-    private String dato_recibido;
-    private String username;
-
-    private static final String ARG_PARAM1 = "param1";
-
-    public MainTresFragment() {
-        // Required empty public constructor
-    }
-
-    public static MainTresFragment newInstance(Bundle param1) {
-        MainTresFragment fragment = new MainTresFragment();
-        fragment.setArguments(param1);
-        return fragment;
-    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        if (getArguments() != null) {
-            dato_recibido = getArguments().getString("nombre");
-        }
         requestPermissions();
+
     }
 
     @Override
@@ -92,17 +75,8 @@ public class MainTresFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        Log.d("depurando", "Llega a MainTresFragment el dato a través de Bundle: " + dato_recibido);
-
         Intent intent = getActivity().getIntent();
-        String nombre = getActivity().getIntent().getStringExtra("NOMBRE");
-        String contraseña = getActivity().getIntent().getStringExtra("PASSWORD");
-
-        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("MyApp", MODE_PRIVATE);
-        String username = sharedPreferences.getString("NOMBRE", null);
-        String password = sharedPreferences.getString("PASSWORD", null);
-
-        Log.d("HomeActivity", "NOMBRE: " + username + ", PASSWORD: " + password);
+        String username = intent.getStringExtra("data");
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             NotificationChannel channel = new NotificationChannel("Notification", "Notification", NotificationManager.IMPORTANCE_DEFAULT);
