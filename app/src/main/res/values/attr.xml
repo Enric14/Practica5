@@ -10,6 +10,7 @@
     <attr name="appPractica5S2" format="reference"/>
     <attr name="appPractica5B1" format="reference"/>
     <attr name="appPractica5B2" format="reference"/>
+    <attr name="appPractica5B3" format="reference"/>
     <attr name="appPractica5BtnFilledregister" format="reference"/>
     <attr name="appPractica5BtnFilledregister2" format="reference"/>
     <attr name="appPractica5BtnFilledlogin" format="reference"/>

@@ -1,60 +1,46 @@
 package es.travelworld.practica5;
 
-import static android.content.Context.MODE_PRIVATE;
-
 import android.Manifest;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.widget.Toolbar;
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.app.ActivityCompat;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
-import androidx.core.content.ContextCompat;
-import androidx.core.content.PackageManagerCompat;
 import androidx.fragment.app.Fragment;
-import androidx.navigation.fragment.NavHostFragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
-import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import com.google.android.material.appbar.MaterialToolbar;
-import com.google.android.material.button.MaterialButton;
-import com.google.android.material.snackbar.Snackbar;
-import com.google.android.material.textview.MaterialTextView;
 import com.karumi.dexter.Dexter;
 import com.karumi.dexter.MultiplePermissionsReport;
 import com.karumi.dexter.PermissionToken;
-import com.karumi.dexter.listener.PermissionDeniedResponse;
-import com.karumi.dexter.listener.PermissionGrantedResponse;
 import com.karumi.dexter.listener.PermissionRequest;
 import com.karumi.dexter.listener.multi.MultiplePermissionsListener;
-import com.karumi.dexter.listener.single.PermissionListener;
 
 import java.util.List;
 
-import es.travelworld.practica5.databinding.FragmentMainBinding;
 import es.travelworld.practica5.databinding.FragmentMainTresBinding;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class MainTresFragment extends Fragment {
 
     private FragmentMainTresBinding binding;
-    private ConstraintLayout constraintLayout;
+    private RecyclerView recyclerView;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -76,7 +62,10 @@ public class MainTresFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         Intent intent = getActivity().getIntent();
-        String username = intent.getStringExtra("data");
+        if (intent.getExtras()!= null) {
+            
+        }
+        String usuario = intent.getStringExtra("login");
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             NotificationChannel channel = new NotificationChannel("Notification", "Notification", NotificationManager.IMPORTANCE_DEFAULT);
@@ -85,7 +74,7 @@ public class MainTresFragment extends Fragment {
         }
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(getActivity(), "Notification");
-        builder.setContentTitle("Bienvenido/a "+username);
+        builder.setContentTitle("Bienvenido/a "+usuario);
         builder.setContentText("Nos alegra verte en este paraíso");
         builder.setSmallIcon(R.drawable.baseline_beach_access_24);
         builder.setAutoCancel(true);
@@ -107,6 +96,7 @@ public class MainTresFragment extends Fragment {
         }
         managerCompat.notify(1, builder.build());
 
+        getHotels();
     }
 
     private void requestPermissions() {
@@ -133,6 +123,29 @@ public class MainTresFragment extends Fragment {
 
             }
         }).check();
+
+    }
+
+    private void getHotels() {
+        Call<List<HotelResult>> apiCall = RetrofitClient.getInstance().getApis().getHotels();
+        apiCall.enqueue(new Callback<List<HotelResult>>() {
+            @Override
+            public void onResponse(Call<List<HotelResult>> call, Response<List<HotelResult>> response) {
+                List<HotelResult> hotelResults = response.body();
+                setAdapter(hotelResults);
+            }
+
+            @Override
+            public void onFailure(Call<List<HotelResult>> call, Throwable t) {
+
+            }
+        });
+    }
+
+    private void setAdapter(List<HotelResult> hotelResults) {
+        binding.hotelsRv.setLayoutManager(new LinearLayoutManager(getActivity()));
+        HotelAdapter hotelAdapter = new HotelAdapter(getActivity(), hotelResults);
+        binding.hotelsRv.setAdapter(hotelAdapter);
     }
 }
 

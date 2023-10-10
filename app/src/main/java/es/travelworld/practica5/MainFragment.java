@@ -37,8 +37,7 @@ public class MainFragment extends Fragment {
 
     private FragmentMainBinding binding;
     private ConstraintLayout constraintLayout;
-    private EditText username, password;
-    private Bundle bundle;
+    private EditText usuario, password;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -54,7 +53,7 @@ public class MainFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         constraintLayout = binding.mainContent1Fragment;
-        username = binding.mainUsername;
+        usuario = binding.mainUsername;
         password = binding.mainPassword;
 
 
@@ -85,7 +84,7 @@ public class MainFragment extends Fragment {
             }
         };
 
-        username.addTextChangedListener(textWatcher);
+        usuario.addTextChangedListener(textWatcher);
         password.addTextChangedListener(textWatcher);
 
         view.findViewById(R.id.main_btn).setOnClickListener(view12 -> {
@@ -97,7 +96,7 @@ public class MainFragment extends Fragment {
 
     public void login() {
         LoginRequest loginRequest = new LoginRequest();
-        loginRequest.setUsername(username.getText().toString());
+        loginRequest.setUsuario(usuario.getText().toString());
         loginRequest.setPassword(password.getText().toString());
 
         Call<LoginResponse> loginResponseCall = ApiClient.getService().userLogin(loginRequest);
@@ -106,7 +105,7 @@ public class MainFragment extends Fragment {
             public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
                 if (response.isSuccessful()) {
                     LoginResponse loginResponse = response.body();
-                    startActivity(new Intent(getActivity(), MainActivityTres.class).putExtra("data", loginResponse.getNombre()));
+                    startActivity(new Intent(getActivity(), MainActivityTres.class).putExtra("login", loginResponse.getNombre()));
 
                 } else {
                     Snackbar snackbar = Snackbar.make(constraintLayout, "Acceso denegado, revisa los datos...", Snackbar.LENGTH_LONG);

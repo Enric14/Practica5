@@ -56,5 +56,9 @@
     <string name="nombre_classic_car">Classic Car</string>
     <string name="precio_classic_car">$34/day</string>
     <string name="main_choose_password">Escoge una contraseña</string>
+    <string name="nombre_hotel">La Meridien Barcelona</string>
+    <string name="fragent_hotels_one">1</string>
+    <string name="fragent_hotels_meridien">Le Meridien Barcelona</string>
+    <string name="rv_hotel_information">Information</string>
 
 </resources>
