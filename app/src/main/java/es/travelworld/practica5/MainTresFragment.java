@@ -3,6 +3,7 @@ package es.travelworld.practica5;
 import android.Manifest;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
@@ -12,6 +13,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.app.ActivityCompat;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
@@ -24,6 +26,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.karumi.dexter.Dexter;
 import com.karumi.dexter.MultiplePermissionsReport;
 import com.karumi.dexter.PermissionToken;
@@ -41,6 +44,9 @@ public class MainTresFragment extends Fragment {
 
     private FragmentMainTresBinding binding;
     private RecyclerView recyclerView;
+    private List<HotelResult> hotelResults;
+    private HotelAdapter hotelAdapter;
+    private ConstraintLayout constraintLayout;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -96,7 +102,11 @@ public class MainTresFragment extends Fragment {
         }
         managerCompat.notify(1, builder.build());
 
-        getHotels();
+        constraintLayout = binding.main3Constraint;
+        recyclerView = binding.hotelsRv;
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity().getApplicationContext()));
+
+        showHotels();
     }
 
     private void requestPermissions() {
@@ -126,26 +136,26 @@ public class MainTresFragment extends Fragment {
 
     }
 
-    private void getHotels() {
-        Call<List<HotelResult>> apiCall = RetrofitClient.getInstance().getApis().getHotels();
-        apiCall.enqueue(new Callback<List<HotelResult>>() {
+    private void showHotels() {
+        Call<List<HotelResult>> call = RetrofitClient.getClient().create(APIs.class).getHotels();
+        call.enqueue(new Callback<List<HotelResult>>() {
             @Override
             public void onResponse(Call<List<HotelResult>> call, Response<List<HotelResult>> response) {
-                List<HotelResult> hotelResults = response.body();
-                setAdapter(hotelResults);
+                if (response.isSuccessful()) {
+                    hotelResults= response.body();
+                    hotelAdapter = new HotelAdapter((Context) hotelResults, (List<HotelResult>) getActivity().getApplicationContext());
+                    recyclerView.setAdapter(hotelAdapter);
+
+                }
             }
 
             @Override
             public void onFailure(Call<List<HotelResult>> call, Throwable t) {
+                Snackbar snackbar = Snackbar.make(constraintLayout, "No se han encontrado hoteles... ", Snackbar.LENGTH_LONG);
+                snackbar.show();
 
             }
         });
-    }
-
-    private void setAdapter(List<HotelResult> hotelResults) {
-        binding.hotelsRv.setLayoutManager(new LinearLayoutManager(getActivity()));
-        HotelAdapter hotelAdapter = new HotelAdapter(getActivity(), hotelResults);
-        binding.hotelsRv.setAdapter(hotelAdapter);
     }
 }
 

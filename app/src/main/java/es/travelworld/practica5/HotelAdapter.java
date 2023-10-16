@@ -16,27 +16,26 @@ import java.util.List;
 
 public class HotelAdapter extends RecyclerView.Adapter<HotelAdapter.RVHolderRetrofit> {
 
-    Context mContext;
-    List<HotelResult> hotelResults;
+    private Context context;
+    private List<HotelResult> hotelResults;
 
-    public HotelAdapter (Context mContext, List<HotelResult> hotelResults) {
+    public HotelAdapter (Context context, List<HotelResult> hotelResults) {
         this.hotelResults = hotelResults;
-        this.mContext = mContext;
+        this.context = context;
     }
 
     @NonNull
     @Override
     public HotelAdapter.RVHolderRetrofit onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(mContext).inflate(R.layout.rv_hotel_item, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.rv_hotel_item, parent, false);
         return new RVHolderRetrofit(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull HotelAdapter.RVHolderRetrofit holder, int position) {
         holder.textView.setText(hotelResults.get(position).getName());
-        Glide.with(mContext).
-                load(hotelResults.get(position).getSrpDesktop()).placeholder(R.drawable.hotel_img).
-                error(R.drawable.no_resultados_img).into(holder.imageView);
+        Glide.with(context).
+                load(hotelResults.get(position).getSrpDesktop()).into(holder.imageView);
 
     }
 
@@ -46,8 +45,8 @@ public class HotelAdapter extends RecyclerView.Adapter<HotelAdapter.RVHolderRetr
     }
 
     public class RVHolderRetrofit extends RecyclerView.ViewHolder{
-        TextView textView;
-        ImageView imageView;
+        private TextView textView;
+        private ImageView imageView;
         public RVHolderRetrofit(@NonNull View itemView) {
             super(itemView);
             textView = itemView.findViewById(R.id.iv_Information);
